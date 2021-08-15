@@ -308,7 +308,7 @@ const Main = (props: any) => {
         })
         .catch(err => {
             setFiles([]);
-            createAlert("error", err.toString());     
+            createAlert("error", err.toString());
         });
     }
 
