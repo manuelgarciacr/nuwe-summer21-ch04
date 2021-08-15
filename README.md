@@ -1,3 +1,9 @@
+# CodeFactor
+
+Nivel A+
+
+![image](https://user-images.githubusercontent.com/29376434/129470690-b3ffa0a5-4c55-4c92-a435-0664dc2657bd.png)
+
 # Funcionamiento
 
 Se pueden arrastrar o seleccionar los archivos en el Drop Box.
@@ -17,7 +23,7 @@ Cuando aparecen varias alertas a la vez en pantalla no las gestiono correctament
 # La idea
 
 Se trataría de un contenedor de archivos compartidos en la nube desde donde podríamos seleccionar archivos para subirlos a nuestro Drive personal.
-En una futura versión, solo el propietario del archivo podrá eliminarlo, y ademas de subir los rchivos al Drive se podrían, por ejemplo, descargar directamente en local.
+En una futura versión, solo el propietario del archivo podrá eliminarlo, y ademas de subir los archivos al Drive se podrían, por ejemplo, descargar directamente en local.
 
 # Deploy
 
@@ -27,14 +33,14 @@ En una futura versión, solo el propietario del archivo podrá eliminarlo, y ade
 
 He utilizádo las siguientes versiones:
 
-React 17.0.2
-Typescript 4.1.2
-Controles y theming con Material UI 4.12.3
-Material UI Lab 4.0.0-alpha.60
-axios 0.21.1
-react-dropzone 11.3.4
-react-file-viewer-extended 2.0.3
-react-google-login 5.2.2
+React 17.0.2<br>
+Typescript 4.1.2<br>
+Controles y theming con Material UI 4.12.3<br>
+Material UI Lab 4.0.0-alpha.60<br>
+axios 0.21.1<br>
+react-dropzone 11.3.4<br>
+react-file-viewer-extended 2.0.3<br>
+react-google-login 5.2.2<br>
 
 # Getting Started with Create React App
 
