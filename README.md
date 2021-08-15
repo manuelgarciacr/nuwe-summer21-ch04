@@ -1,3 +1,41 @@
+# Funcionamiento
+
+Se pueden arrastrar o seleccionar los archivos en el Drop Box.
+Máximo 3 archivos de no más de 250k cada uno.
+Los archivos se suben al servidor.
+Si estamos logueados en google, podemos subir archivos a nuestro Drive mediante un botón creado a tal efecto.
+Otro botón permite eliminar el archivo del servidor.
+
+...
+
+El plugin que utilizo para visualizar las miniaturas (react-file-viewer-extended) no funciona bién en el servidor, pero lo hace perfectamente en local (desarrollo). Ya no me daba tiempo de buscar otra solución.
+
+Da problemas al loguearse. La pantalla de selección de cuenta aparece dos veces. A veces solo aparece una sola vez y el usuario no llega a hacer login, tengo que refrescar la pantalla. Tengo localizado el problema pero es necesario cambiar el sistema que tengo para hacer login (react-google-login), una vez más no me da tiempo de arreglarlo. 
+
+Cuando aparecen varias alertas a la vez en pantalla no las gestiono correctamente, se debe arreglar.
+
+# La idea
+
+Se trataría de un contenedor de archivos compartidos en la nube desde donde podríamos seleccionar archivos para subirlos a nuestro Drive personal.
+En una futura versión, solo el propietario del archivo podrá eliminarlo, y ademas de subir los rchivos al Drive se podrían, por ejemplo, descargar directamente en local.
+
+# Deploy
+
+[https://manuelgc.eu/nuwe2104/](https://manuelgc.eu/nuwe2104/)
+
+# Tecnología
+
+He utilizádo las siguientes versiones:
+
+React 17.0.2
+Typescript 4.1.2
+Controles y theming con Material UI 4.12.3
+Material UI Lab 4.0.0-alpha.60
+axios 0.21.1
+react-dropzone 11.3.4
+react-file-viewer-extended 2.0.3
+react-google-login 5.2.2
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
