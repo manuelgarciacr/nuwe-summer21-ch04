@@ -42,6 +42,13 @@ const useStyles = makeStyles((theme: Theme) =>
                 animation: `$boxShadowReject 2s linear infinite`,
             },
         },
+        loadingError: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: 400,
+        },
         loginContainer: {
             flex: 2,
             display: "flex",
@@ -60,10 +67,21 @@ const useStyles = makeStyles((theme: Theme) =>
                 margin: "16px 0",
             },
         },
+        userImg: {
+            position: "absolute",
+            top: 16,
+            right: 16,
+            cursor: "pointer",
+            textAlign: "center",
+            "& img": {
+                width: 50,
+                height: 50
+            }
+        },
         divider: {
             height: 2,
             width: "100%",
-            margin: "32px 0",
+            margin: "32px 0!important",
             [theme.breakpoints.down("sm")]: {
                 display: "none",
             },
@@ -75,31 +93,114 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         thumb: {
-            display: "inline-flex",
+            display: "flex",
+            flexDirection: "column",
             borderRadius: 2,
             border: "1px solid #eaeaea",
-            marginBottom: 8,
-            marginRight: 8,
             width: 100,
-            height: 100,
+            maxHeight: 216,
             padding: 4,
             boxSizing: "border-box",
+            position: "relative"
         },
         thumbInner: {
-            display: "flex",
-            minWidth: 0,
+            // display: "flex",
+            // flexDirection: "column",
+            width: "100%",
+            height: 100,
+            flexGrow: 0,
+            flexShrink: 0,
+            marginTop: 40,
+            "& p": {
+                overflowWrap: "anywhere"
+            },
+            "& .pg-viewer-wrapper": {
+                width: "auto",
+                height: "100%",
+                display: "block",
+                overflowY: "unset"
+            },
+            "& .photo-viewer-container": {
+                width: "unset!important",
+                height: "unset!important"
+            },
+            "& .photo-viewer-container>img": {
+                width: "100%!important",
+                height: "100%!important"
+            },
+            "& .unsupported-message": {
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                padding: 0,
+                backgroundColor: "transparent",
+                height: "100%",
+                "& .text": {
+                    margin: 0,
+                    maxHeight: 100,
+                    overflow: "hidden",
+                    display: "-webkit-box",
+                    "-webkit-line-clamp": 3,
+                    "-webkit-box-orient": "vertical",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "initial",
+                    lineBreak: "anywhere",
+                    fontSize: 25
+                }
+            }
+        },
+        thumbText: {
+            height: 58,
             overflow: "hidden",
+            marginTop: "5px!important",
+            display: "-webkit-box",
+            "-webkit-line-clamp": 3,
+            "-webkit-box-orient": "vertical",
+            textOverflow: "ellipsis",
+            whiteSpace: "initial",
+            lineBreak: "anywhere"
         },
         img: {
             display: "block",
             width: "auto",
             height: "100%",
         },
+        unsupportedComponent: {
+            textAlign: "center"
+        },
         thumbsContainer: {
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
             marginTop: 16,
+            padding: 16,
+            gap: 5,
+            justifyContent: "space-evenly"
+        },
+        driveBtn: {
+            zIndex: 5,
+            height: 32,
+            padding: "0!important",
+            position: "absolute",
+            right: 32,
+            width: 32,
+            "&.MuiIconButton-root": {
+                position: "absolute",
+            },
+            "&.MuiIconButton-root.Mui-disabled": {
+                opacity: ".3"
+            }
+        },
+        removeBtn: {
+            zIndex: 5,
+            color: "red!important",
+            height: 32,
+            padding: "0!important",
+            right: 5,
+            width: 32,
+            "&.MuiIconButton-root": {
+                position: "absolute",
+            }
         },
         alert: {
             bottom: 12,

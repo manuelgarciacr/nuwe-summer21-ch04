@@ -2,3 +2,10 @@
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.html [QSA,L]
+    <IfModule mod_headers.c>
+        Header add Access-Control-Allow-Origin "http://localhost:3500"
+        Header add Access-Control-Allow-Credentials true
+        Header set Access-Control-Allow-Methods "GET, PUT, POST, DELETE>
+        Header set Access-Control-Allow-Headers "Origin, Content-Type, >
+    </IfModule>
+        
