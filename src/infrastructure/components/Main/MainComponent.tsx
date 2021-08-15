@@ -28,7 +28,7 @@ const path = require('path');
 
 const API_KEY = process.env.REACT_APP_GOOGLE_DRIVE_API_KEY;
 const CLIENT_ID = process.env.REACT_APP_GOOGLE_DRIVE_CLIENT_ID;
-// const SERVER = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://manuelgc.eu/nodejs" 
+// const SERVER = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://manuelgc.eu/nodejs"
 const SERVER = "https://manuelgc.eu/nodejs";
 const UPLOADS = "https://manuelgc.eu/uploads";
 const maxLength = 250 * 1024;
@@ -70,7 +70,7 @@ const Main = (props: any) => {
         maxFiles: 3,
         validator: fileSizeValidator,
         onDrop: acceptedFiles => {
-            setLoading(true); 
+            setLoading(true);
             setFiles(acceptedFiles.map(file => {
                 console.log("AF", file);
                 onFileUpload(file)
@@ -80,7 +80,7 @@ const Main = (props: any) => {
                 return file;
             }));
             getFiles();
-            setLoading(false); 
+            setLoading(false);
         }
     });
 
@@ -95,8 +95,8 @@ const Main = (props: any) => {
             type: type,
             title: title,
             msg: <>{msg}</>
-        }; 
-        setAlerts([...alerts, alert]);  
+        };
+        setAlerts([...alerts, alert]);
     }
 
     const RenderAlerts = alerts.map((alert: any) =>
@@ -145,12 +145,12 @@ const Main = (props: any) => {
         if (!googleAuth)
             return;
         const user = googleAuth.currentUser.get();
-        const newUserProfile = user.getBasicProfile();       
+        const newUserProfile = user.getBasicProfile();
         const isAuthorized = user.hasGrantedScopes(SCOPE);
         if (!newUserProfile) {
             setUserProfile(undefined);
             return
-        } 
+        }
         if (isAuthorized) {
             setUserProfile(newUserProfile);
             //we will put the code of the third step here
@@ -265,10 +265,10 @@ const Main = (props: any) => {
     //
 
     const onFileUpload = (file: File) => {
-        // Create an object of formData 
+        // Create an object of formData
         const formData = new FormData();
 
-        // Update the formData object 
+        // Update the formData object
         formData.append(
             "file",
             file,
@@ -277,10 +277,10 @@ const Main = (props: any) => {
         // Send formData object
         axios.post(SERVER + "/upload", formData)
         .then(res => {
-            createAlert("success", file.name);     
+            createAlert("success", file.name);
         })
         .catch(err => {
-            createAlert("error", file.name, err.toString());           
+            createAlert("error", file.name, err.toString());
         });
     };
 
@@ -294,10 +294,10 @@ const Main = (props: any) => {
         axios.delete(SERVER + "/upload/" + file)
         .then(res => {
             getFiles();
-            createAlert("success", file + " eliminado");           
+            createAlert("success", file + " eliminado");
         })
         .catch(err => {
-            createAlert("error", file, "No se ha podido eliminar el archivo. " + err.toString());           
+            createAlert("error", file, "No se ha podido eliminar el archivo. " + err.toString());
         });
     };
 
@@ -308,7 +308,7 @@ const Main = (props: any) => {
         })
         .catch(err => {
             setFiles([]);
-            createAlert("error", err.toString());           
+            createAlert("error", err.toString());     
         });
     }
 
@@ -327,10 +327,10 @@ const Main = (props: any) => {
                         key={i}
                         fileType={file.type}
                         filePath={path.join(UPLOADS, file.name)}
-                        unsupportedComponent={ () => 
+                        unsupportedComponent={ () =>
                             <div className={classes.unsupportedComponent}>
                                 <Typography variant="h4" className="text">{`${file.type ? file.type : '?' }`}</Typography>
-                            </div> 
+                            </div>
                         }
                         onError={(err: any) => console.log("FileViewer", err)}
                     />
@@ -422,7 +422,7 @@ const Main = (props: any) => {
                         <div className={classes.loadingError}>
                            <CircularProgress />
                             <Typography variant="h4">Cargando...</Typography>
-                        </div> 
+                        </div>
                     }
                     {!loading &&
                         <aside className={classes.thumbsContainer}>
